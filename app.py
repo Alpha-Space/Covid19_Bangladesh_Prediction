@@ -57,7 +57,6 @@ def main():
         plt.title("Predictions: Number Of infected Cases In Bangladesh (Sep - Dec)", fontsize = 16)
 
         plt.tight_layout()
-        fig, ax = plt.subplots(figsize=(5, 6))
         plt.savefig('prediction.png')
 
 
