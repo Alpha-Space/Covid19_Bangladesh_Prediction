@@ -1,7 +1,55 @@
 <!doctype html>
 <html>
+<style>
+form {
+    margin: auto;
+    width: 35%;
+}
+.result {
+    margin: auto;
+    width: 35%;
+    border: 1px solid #ccc;
+}
+</style>
 <head>
-<title>Covid 19 Bangladesh</title>
+    <title>Prediction Result Model</title>
 </head>
-<h1>We have created this project using Flask with Machine Learning Model</h1>
+<form action="{{ url_for('main') }}" method="POST">
+    <fieldset>
+        <legend>Input values</legend>
+        Start date:
+        <input name="s_date" type="number" required>
+        <br>
+        <br> Start Month:
+        <input name="s_month" type="number" required>
+        <br>
+        <br> Start Year:
+        <input name="s_year" type="number" required>
+        <br>
+        <br>
+        End Date:
+        <input name="e_date" type="number" required>
+        <br>
+        <br> End Month:
+        <input name="e_month" type="number" required>
+        <br>
+        <br> End Year:
+        <input name="e_year" type="number" required>
+        <br>
+        <br>
+
+        <input type="submit">
+    </fieldset>
+</form>
+<br>
+<div class="result" align="center">
+    {% if result %}
+        {% for variable, value in original_input.items() %}
+            <b>{{ variable }}</b> : {{ value }}
+        {% endfor %}
+        <br>
+        <br> Prediction COVID 19:
+           <p style="font-size:50px">{{ result }}</p>
+    {% endif %}
+</div>
 </html>
